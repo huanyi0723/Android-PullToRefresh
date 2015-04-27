@@ -35,7 +35,7 @@ public class LauncherActivity extends ListActivity {
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		Intent intent;
+		Intent intent = null;
 
 		switch (position) {
 			default:
@@ -58,10 +58,10 @@ public class LauncherActivity extends ListActivity {
 				intent = new Intent(this, PullToRefreshHorizontalScrollViewActivity.class);
 				break;
 			case 6:
-				intent = new Intent(this, PullToRefreshViewPagerActivity.class);
+				//intent = new Intent(this, PullToRefreshViewPagerActivity.class);
 				break;
 			case 7:
-				intent = new Intent(this, PullToRefreshListFragmentActivity.class);
+				//intent = new Intent(this, PullToRefreshListFragmentActivity.class);
 				break;
 			case 8:
 				intent = new Intent(this, PullToRefreshWebView2Activity.class);

@@ -96,11 +96,11 @@ public final class PullToRefreshListActivity extends ListActivity {
 		/**
 		 * Add Sound Event Listener
 		 */
-		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(this);
-		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
-		soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
-		soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
-		mPullRefreshListView.setOnPullEventListener(soundListener);
+//		SoundPullEventListener<ListView> soundListener = new SoundPullEventListener<ListView>(this);
+//		soundListener.addSoundEvent(State.PULL_TO_REFRESH, R.raw.pull_event);
+//		soundListener.addSoundEvent(State.RESET, R.raw.reset_sound);
+//		soundListener.addSoundEvent(State.REFRESHING, R.raw.refreshing_sound);
+//		mPullRefreshListView.setOnPullEventListener(soundListener);
 
 		// You can also just use setListAdapter(mAdapter) or
 		// mPullRefreshListView.setAdapter(mAdapter)
@@ -113,7 +113,7 @@ public final class PullToRefreshListActivity extends ListActivity {
 		protected String[] doInBackground(Void... params) {
 			// Simulates a background job.
 			try {
-				Thread.sleep(4000);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 			}
 			return mStrings;
@@ -174,21 +174,21 @@ public final class PullToRefreshListActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 
 		switch (item.getItemId()) {
-			case MENU_MANUAL_REFRESH:
-				new GetDataTask().execute();
-				mPullRefreshListView.setRefreshing(false);
-				break;
-			case MENU_DISABLE_SCROLL:
-				mPullRefreshListView.setScrollingWhileRefreshingEnabled(!mPullRefreshListView
-						.isScrollingWhileRefreshingEnabled());
-				break;
-			case MENU_SET_MODE:
-				mPullRefreshListView.setMode(mPullRefreshListView.getMode() == Mode.BOTH ? Mode.PULL_FROM_START
-						: Mode.BOTH);
-				break;
-			case MENU_DEMO:
-				mPullRefreshListView.demo();
-				break;
+		case MENU_MANUAL_REFRESH:
+			new GetDataTask().execute();
+			mPullRefreshListView.setRefreshing(false);
+			break;
+		case MENU_DISABLE_SCROLL:
+			mPullRefreshListView.setScrollingWhileRefreshingEnabled(!mPullRefreshListView
+					.isScrollingWhileRefreshingEnabled());
+			break;
+		case MENU_SET_MODE:
+			mPullRefreshListView
+					.setMode(mPullRefreshListView.getMode() == Mode.BOTH ? Mode.PULL_FROM_START : Mode.BOTH);
+			break;
+		case MENU_DEMO:
+			mPullRefreshListView.demo();
+			break;
 		}
 
 		return super.onOptionsItemSelected(item);
